@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+}
+
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    //Application context
+    implementation 'cglib:cglib:3.3.0'
+    implementation 'org.reflections:reflections:0.10.2'
+    implementation 'javax.annotation:jsr250-api:1.0'
+    //Application context
+    //Logging
+    implementation 'org.apache.logging.log4j:log4j-api:2.19.0'
+    implementation 'org.apache.logging.log4j:log4j-core:2.19.0'
+    implementation 'org.slf4j:slf4j-nop:2.0.5'
+    //Logging
+    //Lombok
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+    testCompileOnly 'org.projectlombok:lombok:1.18.24'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
+    //Lombok
+    //JUnit
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
+    testImplementation 'org.mockito:mockito-junit-jupiter:4.9.0'
+    //JUnit
+}
+
+test {
+    useJUnitPlatform()
+}
