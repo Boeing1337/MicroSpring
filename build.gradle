@@ -39,3 +39,18 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+tasks.register('fatJar', Jar) {
+    group = "build"
+    description = "Assembles a fat jar with dependencies for distribution."
+
+    archiveBaseName.set("${project.name}-fat")
+    from(sourceSets.main.get().output)
+
+    dependsOn(configurations.runtimeClasspath)
+    from({
+        configurations.runtimeClasspath.get().filter { it.exists() }.map { zipTree(it) }
+    })
+
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
