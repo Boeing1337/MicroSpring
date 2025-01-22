@@ -1,4 +1,4 @@
-name: Build and Publish Fat JAR
+name: Build and Publish JAR
 
 on:
   push:
