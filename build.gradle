@@ -3,8 +3,10 @@ plugins {
     id 'com.gradleup.shadow' version '9.0.0-beta5'
 }
 
-compileJava.options.encoding = 'UTF-8'
-compileTestJava.options.encoding = 'UTF-8'
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
 
 group 'com.github.Boeing1337'
 version '1.0-SNAPSHOT'
