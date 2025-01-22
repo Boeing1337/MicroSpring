@@ -29,6 +29,6 @@ jobs:
       - name: Publish Release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "build/libs/*-fat.jar"
+          artifacts: "build/libs/*-all.jar"
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ github.ref_name }}
